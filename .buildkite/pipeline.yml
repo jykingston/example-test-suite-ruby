@@ -1,0 +1,10 @@
+env:
+  BUILDKITE_SUITE_TOKEN: "fWD5V1t8bzGtArDrZUJdRuzX"
+
+steps:
+  - label: ":rspec: RSpec"
+    command: .buildkite/steps/run
+    key: run
+    agents:
+      queue: "hosted-queue"
+    parallelism: 5
