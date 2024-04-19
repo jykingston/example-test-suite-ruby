@@ -15,4 +15,4 @@ docker run \
   --env BUILDKITE_PARALLEL_JOB \
   --env BUILDKITE_PARALLEL_JOB_COUNT \
   --env BUILDKITE_SUITE_TOKEN \
-  -it --rm app sh -c "./test-splitter-linux-amd64"
+  -it --rm app sh -c "test-splitter"
