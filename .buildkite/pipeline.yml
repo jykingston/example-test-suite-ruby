@@ -1,5 +1,5 @@
 env:
-  BUILDKITE_SUITE_TOKEN: "fWD5V1t8bzGtArDrZUJdRuzX"
+  BUILDKITE_ANALYTICS_TOKEN: "fWD5V1t8bzGtArDrZUJdRuzX"
 
 steps:
   - label: ":rspec: RSpec"
