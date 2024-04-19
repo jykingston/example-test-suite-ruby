@@ -6,8 +6,8 @@ RUN apk add --no-cache \
     git \
     curl
 
-ENV BUILDKITE_TEST_SPLITTER_VERSION=v0.1.0 \
-  BUIlDKITE_TEST_SPLITTER_SHA1SUM=5a6e5241867b114a3be509d5c7f1348927fb9eeb
+ENV BUILDKITE_TEST_SPLITTER_VERSION=v0.2.0 \
+  BUIlDKITE_TEST_SPLITTER_SHA1SUM=ed07ec39de1399bb85866b562d0a90ca6afe87b4
 
 RUN curl -fsSLO "https://github.com/buildkite/test-splitter/releases/download/${BUILDKITE_TEST_SPLITTER_VERSION}/test-splitter-linux-amd64" \
   && echo "${BUIlDKITE_TEST_SPLITTER_SHA1SUM} test-splitter-linux-amd64" | sha1sum -c - \
