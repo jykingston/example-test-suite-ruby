@@ -2,9 +2,12 @@ env:
   BUILDKITE_ANALYTICS_TOKEN: "fWD5V1t8bzGtArDrZUJdRuzX"
 
 steps:
-  - label: ":rspec: RSpec"
+  - label: ":rspec: RSpec unit"
     command: .buildkite/steps/run
-    key: run
+    key: unit
     agents:
       queue: "hosted-queue"
-    parallelism: 5
+    parallelism: 2
+    env:
+      BUILDKITE_SPLITTER_IDENTIFIER: "${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
+      BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/unit/**/*_spec.rb"

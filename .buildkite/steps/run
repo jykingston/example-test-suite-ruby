@@ -14,4 +14,6 @@ docker run \
   --env BUILDKITE_BUILD_URL \
   --env BUILDKITE_PARALLEL_JOB \
   --env BUILDKITE_PARALLEL_JOB_COUNT \
+  --env BUILDKITE_SPLITTER_TEST_FILE_PATTERN \
+  --env BUILDKITE_SPLITTER_IDENTIFIER \
   -it --rm app sh -c "test-splitter"
