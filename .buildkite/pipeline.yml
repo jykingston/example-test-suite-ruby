@@ -7,33 +7,6 @@ steps:
     key: unit
     agents:
       queue: "hosted-queue"
-    parallelism: 5
+    parallelism: 2
     env:
-      BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "**/user_spec.rb"
-
-  # - label: ":selenium: Acceptance"
-  #   command: .buildkite/steps/run
-  #   key: acceptance
-  #   agents:
-  #     queue: "hosted-queue"
-  #   parallelism: 1
-  #   env:
-  #     BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/acceptance/**/*_spec.rb"
-
-  # - label: ":firefighter: Smoke"
-  #   command: .buildkite/steps/run
-  #   key: smoke
-  #   agents:
-  #     queue: "hosted-queue"
-  #   parallelism: 1
-  #   env:
-  #     BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/smoke/**/*_spec.rb"
-
-  # - label: ":infinity: E2E"
-  #   command: .buildkite/steps/run
-  #   key: e2e
-  #   agents:
-  #     queue: "hosted-queue"
-  #   parallelism: 1
-  #   env:
-  #     BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/e2e/**/*_spec.rb"
+      BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/unit/*_spec.rb"
