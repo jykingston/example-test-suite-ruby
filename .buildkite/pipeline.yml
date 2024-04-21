@@ -9,5 +9,5 @@ steps:
       queue: "hosted-queue"
     parallelism: 2
     env:
-      BUILDKITE_SPLITTER_IDENTIFIER: "unit"
+      BUILDKITE_SPLITTER_IDENTIFIER: "${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
       BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/unit/**/*_spec.rb"
