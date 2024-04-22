@@ -2,6 +2,8 @@
 
 set -e
 
+export BUILDKITE_SPLITTER_IDENTIFIER="${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
+
 docker build -t app --load .
 docker run \
   --env BUILDKITE_ANALYTICS_TOKEN \
@@ -16,5 +18,4 @@ docker run \
   --env BUILDKITE_PARALLEL_JOB_COUNT \
   --env BUILDKITE_SPLITTER_TEST_FILE_PATTERN \
   --env BUILDKITE_SPLITTER_IDENTIFIER \
-  --env BUILDKITE_STEP_KEY \
   -it --rm app sh -c "test-splitter"
