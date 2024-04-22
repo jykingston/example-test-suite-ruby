@@ -2,6 +2,8 @@
 
 set -e
 
+export BUILDKITE_SPLITTER_IDENTIFIER="${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
+
 docker build -t app --load .
 docker run \
   --env BUILDKITE_ANALYTICS_TOKEN \
