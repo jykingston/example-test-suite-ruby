@@ -7,5 +7,5 @@ to split the suite of tests.
 
 ## Fetching the Test Splitter
 The [Dockerfile](./Dockerfile) fetches the test-splitter binary from GitHub and
-builds it into the Docker container. This is then called by the [./buildkite/steps/run](./buildkite/steps/run)
+builds it into the Docker container. This is then called by the [./.buildkite/steps/run](./.buildkite/steps/run)
 Bash script. 
