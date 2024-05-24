@@ -16,3 +16,26 @@ Bash script.
 This example suite uses `BUILDKITE_SPLITTER_TEST_FILE_PATTERN` env var to further partition the test suite
 into `unit` and `acceptance` specs. The `BUILDKITE_SPLITTER_IDENTIFIER` env var is used to ensure that
 a unique key is used to define the two steps. 
+
+
+## Updating Test Ownership
+
+Buildkite Test Analytics offers the concept of test ownership.
+
+By utilising a TESTOWNERS file
+
+```
+*login*.rb    iam
+*logout*.rb   iam
+*password*.rb iam
+*org*.rb      iam
+*team*.rb     iam
+*user*.rb     iam
+
+*checkout*.rb billing
+
+smoke/*       platform
+e2e/*         platform
+```
+
+We can automatically assign flaky tests to their owners
