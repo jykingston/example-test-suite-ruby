@@ -2,7 +2,7 @@
 *logout*.rb   iam
 *password*.rb iam
 *org*.rb      iam
-*team*.rb     platform
+*team*.rb     iam
 *user*.rb     iam
 
 *checkout*.rb billing
