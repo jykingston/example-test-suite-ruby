@@ -17,8 +17,7 @@ steps:
     env:
       BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/acceptance/**/*_spec.rb"
 
-
-  - label: "Update Test Ownership"
+  - label: "Update Test Ownership?"
     plugins:
       - monorepo-diff#v1.0.1:
           watch:
