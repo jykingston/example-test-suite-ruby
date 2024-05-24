@@ -18,6 +18,7 @@ steps:
       BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/acceptance/**/*_spec.rb"
 
   - label: "Update Test Ownership?"
+    branches: "main"
     plugins:
       - monorepo-diff#v1.0.1:
           watch:
