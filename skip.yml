@@ -1,0 +1,6 @@
+location:
+  -
+  - "./spec/unit/organization_spec.rb:4"
+
+description:
+  - "Changing Password should change the users password"
