@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -e
+
+docker build -t app --load .
+docker run \
+  --env API_ACCESS_TOKEN \
+  -it --rm app sh -c "bin/fetch_timing_data.rb"
