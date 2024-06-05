@@ -1,1 +1,11 @@
 *login*.rb    iam
+*logout*.rb   iam
+*password*.rb iam
+*org*.rb      iam
+*team*.rb     iam
+*user*.rb     iam
+
+*checkout*.rb billing
+
+smoke/*       platform
+e2e/*         platform
