@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+require 'uri'
+require 'json'
+require 'csv'
+
+spec_files = Dir["spec/**/*.rb"]
+paths = spec_files.join("&paths[]=")
+
+# Define the URL and Bearer token
+url = "https://api.buildkite.com/v2/analytics/organizations/jimjams/suites/ta-example/test_files?paths[]=#{paths}"
+bearer_token = ENV["API_ACCESS_TOKEN"]
+
+if bearer_token.nil?
+  puts "No API Access Token"
+  return
+end
+
+uri = URI.parse(url)
+request = Net::HTTP::Get.new(uri)
+request["Authorization"] = "Bearer #{bearer_token}"
+request["Content-Type"] = "application/json"
+response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
+  http.request(request)
+end
+
+# Output the response body
+timings = JSON.parse(response.body)
+
+CSV.open("timings.csv", "wb") do |csv|
+  timings.to_a.each do |row|
+    csv << row
+  end
+end
+
+File.open("annotation.md", 'w') do |file|
+  file.puts("|file|time|")
+  file.puts("|-|-|")
+
+  timings.each do |key, value|
+    file.puts("|#{key}|#{value}|")
+  end
+end
