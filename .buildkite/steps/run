@@ -6,10 +6,18 @@ set -e
 # uniquely caches each splitting step, i.e. 1 test plan for the unit tests
 # and 1 test plan for the acceptance tests.
 export BUILDKITE_SPLITTER_IDENTIFIER="${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
+export BUILDKITE_API_ACCESS_TOKEN="${API_ACCESS_TOKEN}"
+export BUILDKITE_ORGANIZATION_SLUG="jimjams"
+export BUILDKITE_SPLITTER_SUITE_SLUG="ta-example"
+export BUILDKITE_SPLITTER_TEST_CMD="bundle exec rspec {{testExamples}} --tag ~@quarantine"
 
 docker build -t app --load .
 docker run \
+  --env BUILDKITE_SPLITTER_TEST_CMD \
   --env BUILDKITE_ANALYTICS_TOKEN \
+  --env BUILDKITE_ORGANIZATION_SLUG \
+  --env BUILDKITE_SPLITTER_SUITE_SLUG \
+  --env BUILDKITE_API_ACCESS_TOKEN \
   --env BUILDKITE_BUILD_ID \
   --env BUILDKITE_BUILD_NUMBER \
   --env BUILDKITE_JOB_ID \

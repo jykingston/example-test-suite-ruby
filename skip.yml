@@ -1,5 +1,4 @@
 location:
-  -
   - "./spec/unit/organization_spec.rb:4"
 
 description:
