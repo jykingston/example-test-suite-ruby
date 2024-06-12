@@ -6,10 +6,9 @@ require 'json'
 require 'csv'
 
 spec_files = Dir["spec/**/*.rb"]
-paths = spec_files.join("&paths[]=")
 
 # Define the URL and Bearer token
-url = "https://api.buildkite.com/v2/analytics/organizations/jimjams/suites/ta-example/test_files?paths[]=#{paths}"
+url = "https://api.buildkite.com/v2/analytics/organizations/jimjams/suites/ta-example/test_files"
 bearer_token = ENV["API_ACCESS_TOKEN"]
 
 if bearer_token.nil?
@@ -17,10 +16,13 @@ if bearer_token.nil?
   return
 end
 
+
 uri = URI.parse(url)
-request = Net::HTTP::Get.new(uri)
+request = Net::HTTP::Post.new(uri)
 request["Authorization"] = "Bearer #{bearer_token}"
 request["Content-Type"] = "application/json"
+request.body = {paths: spec_files}.to_json
+
 response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https") do |http|
   http.request(request)
 end
