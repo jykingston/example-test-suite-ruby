@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require 'irb'
+require 'irb/completion'
+
+# Optionally, load an IRB configuration file
+IRB.conf[:IRB_RC] = Proc.new do |conf|
+  conf.main.extend(IRB::ExtendCommandBundle)
+end
+
+IRB.start
