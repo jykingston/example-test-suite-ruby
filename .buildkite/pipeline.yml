@@ -5,6 +5,14 @@ steps:
     agents:
       queue: "hosted-queue"
 
+  - label: "Fetch skipped_tests"
+    command: .buildkite/steps/fetch_skipped_tests
+    key: skipped_tests
+    agents:
+      queue: "hosted-queue"
+
+  - wait: ~
+
   - label: ":rspec: RSpec unit"
     command: .buildkite/steps/run
     key: unit
