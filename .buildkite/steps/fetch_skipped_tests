@@ -11,4 +11,4 @@ docker run \
   -it --rm app sh -c "bin/fetch_skipped_tests.rb"
 
 buildkite-agent artifact upload skipped.json
-cat skipped.json | buildkite-agent annotate
+cat skipped.md | buildkite-agent annotate --append

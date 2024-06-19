@@ -29,3 +29,15 @@ end
 File.open("skipped.json", 'w') do |file|
   file.puts(response.body)
 end
+
+skipped = JSON.parse(response.body)
+
+File.open("skipped.md", 'w') do |file|
+  file.puts("### Skipped Tests")
+  file.puts("|test|")
+  file.puts("|-|")
+
+  skipped.map { |t| t["location"] }.each do |test|
+    file.puts("|#{test}|")
+  end
+end
