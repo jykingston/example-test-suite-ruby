@@ -37,6 +37,7 @@ CSV.open("timings.csv", "wb") do |csv|
 end
 
 File.open("annotation.md", 'w') do |file|
+  file.puts("### Timing Data")
   file.puts("|file|time|")
   file.puts("|-|-|")
 

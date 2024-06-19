@@ -2,6 +2,8 @@
 
 set -e
 
+buildkite-agent artifact download skipped.json .
+
 # We set BUILDKITE_SPLITTER_IDENTIFIER to ensure that the Buildkite 
 # uniquely caches each splitting step, i.e. 1 test plan for the unit tests
 # and 1 test plan for the acceptance tests.
