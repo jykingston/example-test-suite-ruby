@@ -16,7 +16,6 @@ if bearer_token.nil?
   return
 end
 
-
 uri = URI.parse(url)
 request = Net::HTTP::Get.new(uri)
 request["Authorization"] = "Bearer #{bearer_token}"
@@ -34,10 +33,10 @@ skipped = JSON.parse(response.body)
 
 File.open("skipped.md", 'w') do |file|
   file.puts("### Skipped Tests")
-  file.puts("|test|")
-  file.puts("|-|")
+  file.puts("|test|location|")
+  file.puts("|-|-|")
 
-  skipped.map { |t| t["location"] }.each do |test|
-    file.puts("|#{test}|")
+  skipped.each do |test|
+    file.puts("|[#{test["name"]}](#{test["web_url"]})|#{test["location"]}|")
   end
 end
