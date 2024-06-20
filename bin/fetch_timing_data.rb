@@ -27,6 +27,11 @@ response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == "https
   http.request(request)
 end
 
+# write timing data to json file
+File.open("timings.json", 'w') do |file|
+  file.puts(response.body)
+end
+
 # Output the response body
 timings = JSON.parse(response.body)
 
