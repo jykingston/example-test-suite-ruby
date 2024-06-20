@@ -4,7 +4,7 @@
 *org*.rb      iam
 *team*.rb     iam
 *user*.rb     iam
-*flaky*.rb     iam
+*flaky*.rb     iam billing
 
 *checkout*.rb billing
 
