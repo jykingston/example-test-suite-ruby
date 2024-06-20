@@ -11,6 +11,7 @@ docker run \
   -it --rm app sh -c "bin/fetch_timing_data.rb"
 
 buildkite-agent artifact upload timings.csv
+buildkite-agent artifact upload timings.json 
 buildkite-agent artifact upload annotation.md
 cat annotation.md | buildkite-agent annotate --append
 
