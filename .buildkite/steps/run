@@ -9,7 +9,7 @@ buildkite-agent artifact download skipped.json .
 # and 1 test plan for the acceptance tests.
 export BUILDKITE_SPLITTER_IDENTIFIER="${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}"
 export BUILDKITE_ANALYTICS_TOKEN=$(buildkite-agent secret get SUITE_TOKEN)
-export BUILDKITE_API_ACCESS_TOKEN=$(buildkite-agent secret get API_ACCESS_TOKEN)
+export BUILDKITE_SPLITTER_API_ACCESS_TOKEN=$(buildkite-agent secret get API_ACCESS_TOKEN)
 export BUILDKITE_ORGANIZATION_SLUG="jimjams"
 export BUILDKITE_SPLITTER_SUITE_SLUG="ta-example"
 export BUILDKITE_SPLITTER_TEST_CMD="bundle exec rspec {{testExamples}} --tag ~@quarantine"
@@ -20,7 +20,7 @@ docker run \
   --env BUILDKITE_ANALYTICS_TOKEN \
   --env BUILDKITE_ORGANIZATION_SLUG \
   --env BUILDKITE_SPLITTER_SUITE_SLUG \
-  --env BUILDKITE_API_ACCESS_TOKEN \
+  --env BUILDKITE_SPLITTER_API_ACCESS_TOKEN \
   --env BUILDKITE_BUILD_ID \
   --env BUILDKITE_BUILD_NUMBER \
   --env BUILDKITE_JOB_ID \
