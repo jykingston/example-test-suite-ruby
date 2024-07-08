@@ -11,7 +11,7 @@ export BUILDKITE_SPLITTER_IDENTIFIER="${BUILDKITE_BUILD_ID}_${BUILDKITE_STEP_ID}
 export BUILDKITE_ANALYTICS_TOKEN=$(buildkite-agent secret get SUITE_TOKEN)
 export BUILDKITE_SPLITTER_API_ACCESS_TOKEN=$(buildkite-agent secret get API_ACCESS_TOKEN)
 export BUILDKITE_ORGANIZATION_SLUG="jimjams"
-export BUILDKITE_SPLITTER_SUITE_SLUG="ta-example"
+export BUILDKITE_SPLITTER_SUITE_SLUG="v2-ingestion"
 export BUILDKITE_SPLITTER_TEST_CMD="bundle exec rspec {{testExamples}} --tag ~@quarantine"
 
 docker build -t app --load .
