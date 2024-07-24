@@ -8,7 +8,7 @@ require 'csv'
 spec_files = Dir["spec/**/*.rb"]
 
 # Define the URL and Bearer token
-url = "https://api.buildkite.com/v2/analytics/organizations/jimjams/suites/v2-ingestion/test_files"
+url = "https://api.buildkite.com/v2/analytics/organizations/test-analytics-sandbox/suites/example-rspec-test-suite/test_files"
 bearer_token = ENV["API_ACCESS_TOKEN"]
 
 if bearer_token.nil?
