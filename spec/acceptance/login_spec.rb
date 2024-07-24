@@ -7,6 +7,7 @@ describe "Login" do
   end
 
   it "should restrict access" do
+    sleep(29)
     expect(2).to eq(2)
   end
 end
