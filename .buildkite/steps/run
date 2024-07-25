@@ -13,9 +13,11 @@ export BUILDKITE_SPLITTER_API_ACCESS_TOKEN=$(buildkite-agent secret get API_ACCE
 export BUILDKITE_ORGANIZATION_SLUG="test-analytics-sandbox"
 export BUILDKITE_SPLITTER_SUITE_SLUG="rspec-example"
 export BUILDKITE_SPLITTER_TEST_CMD="bundle exec rspec {{testExamples}} --tag ~@quarantine"
+export BUILDKITE_SPLITTER_DEBUG_ENABLED=true
 
 docker build -t app --load .
 docker run \
+  --env BUILDKITE_SPLITTER_DEBUG_ENABLED \ 
   --env BUILDKITE_SPLITTER_TEST_CMD \
   --env BUILDKITE_ANALYTICS_TOKEN \
   --env BUILDKITE_ORGANIZATION_SLUG \
