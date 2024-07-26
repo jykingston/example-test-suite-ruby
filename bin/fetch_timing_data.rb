@@ -47,6 +47,6 @@ File.open("annotation.md", 'w') do |file|
   file.puts("|-|-|")
 
   timings.each do |key, value|
-    file.puts("|#{key}|#{value}|")
+    file.puts("|[#{key}](https://buildkite.com/organizations/test-analytics-sandbox/analytics/suites/rspec-example/tests?branch=all+branches&period=7days&query=#{key})|#{value}|")
   end
 end
