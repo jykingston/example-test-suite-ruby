@@ -36,6 +36,6 @@ steps:
     plugins:
       - monorepo-diff#v1.0.1:
           watch:
-            - path: .buildkite/TESTOWNERS
+            - path: ./TESTOWNERS
               config:
                 trigger: update-test-ownership
