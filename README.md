@@ -1,6 +1,6 @@
 # Example RSpec Test Suite
 
-This is a sample RSpec Test Suite which uses Buildkite's Test Analytics 
+This is a sample RSpec Test Suite which uses Buildkite's Test Engine
 observability and automation tooling to track test performance, reliability
 and uses Buildkite's [test-splitter](https://github.com/buildkite/test-splitter)
 to split the suite of tests. 
@@ -20,7 +20,7 @@ a unique key is used to define the two steps.
 
 ## Updating Test Ownership
 
-Buildkite Test Analytics offers the concept of test ownership.
+Buildkite Test Engine offers the concept of test ownership.
 
 By utilising a TESTOWNERS file
 
