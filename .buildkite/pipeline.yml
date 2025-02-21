@@ -1,35 +1,4 @@
 steps:
-  - label: "Fetch timing data"
-    command: .buildkite/steps/fetch_timing_data
-    key: timing_data
-
-  - label: "Fetch skipped_tests"
-    command: .buildkite/steps/fetch_skipped_tests
-    key: skipped_tests
-
-  - wait: ~
-
-  - label: ":rspec: RSpec unit"
-    command: .buildkite/steps/run
-    key: unit
-    parallelism: 2
-    env:
-      BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/unit/**/*_spec.rb"
-
-  - label: "Acceptance"
-    command: .buildkite/steps/run
-    key: acceptance
-    parallelism: 2
-    env:
-      BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/acceptance/**/*_spec.rb"
-
-  - label: "Everything Else"
-    command: .buildkite/steps/run
-    key: everything_else
-    parallelism: 2
-    env:
-      BUILDKITE_SPLITTER_TEST_FILE_EXCLUDE_PATTERN: "spec/{acceptance,unit}/**/*_spec.rb"
-
   - label: "Update Test Ownership?"
     branches: "main"
     plugins:
