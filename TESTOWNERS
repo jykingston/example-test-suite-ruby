@@ -8,5 +8,5 @@
 
 *checkout*.rb billing
 
-smoke/*       platform
+smoke/*       jyent
 e2e/*         platform
