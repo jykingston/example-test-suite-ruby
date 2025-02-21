@@ -2,22 +2,16 @@ steps:
   - label: "Fetch timing data"
     command: .buildkite/steps/fetch_timing_data
     key: timing_data
-    agents:
-      queue: "hosted-queue"
 
   - label: "Fetch skipped_tests"
     command: .buildkite/steps/fetch_skipped_tests
     key: skipped_tests
-    agents:
-      queue: "hosted-queue"
 
   - wait: ~
 
   - label: ":rspec: RSpec unit"
     command: .buildkite/steps/run
     key: unit
-    agents:
-      queue: "hosted-queue"
     parallelism: 2
     env:
       BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/unit/**/*_spec.rb"
@@ -25,8 +19,6 @@ steps:
   - label: "Acceptance"
     command: .buildkite/steps/run
     key: acceptance
-    agents:
-      queue: "hosted-queue"
     parallelism: 2
     env:
       BUILDKITE_SPLITTER_TEST_FILE_PATTERN: "spec/acceptance/**/*_spec.rb"
@@ -34,8 +26,6 @@ steps:
   - label: "Everything Else"
     command: .buildkite/steps/run
     key: everything_else
-    agents:
-      queue: "hosted-queue"
     parallelism: 2
     env:
       BUILDKITE_SPLITTER_TEST_FILE_EXCLUDE_PATTERN: "spec/{acceptance,unit}/**/*_spec.rb"
